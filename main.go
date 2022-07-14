@@ -13,8 +13,10 @@ func main() {
 	//INIT ROUTER
 	r := mux.NewRouter()
 
+	// DB CONNECTION
 	DB := db.InitDB()
 
+	//HANDLER TO SEND DB CONNECTIONS TO ENDPOINTS
 	h := handlers.New(DB)
 
 	//ROUTES
