@@ -30,3 +30,21 @@ In the root folder of the app run:
 Then run:
 
     docker run -it -p 3000:3000  --rm --name my-running-app interview_app
+
+### Build app without docker
+
+Run commands below after each other:
+
+    go get github.com/gorilla/mux
+
+    go get github.com/leonelquinteros/gorand
+
+    go get gorm.io/driver/postgres
+
+    go get gorm.io/gorm
+
+
+    go build
+
+    ./interview_restapi
+
