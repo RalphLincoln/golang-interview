@@ -42,7 +42,7 @@ func main() {
 
 	port := os.Getenv("PORT")
 
-	url := fmt.Sprintf(":%s", port)
+	url := fmt.Sprintf(":%s", "3000")
 
 	//SERVER SET UP
 	srv := &http.Server{

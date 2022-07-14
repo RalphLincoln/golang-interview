@@ -1,6 +1,6 @@
 # interview_restapi
 
-#### Running api
+### Running api
 
 baseUrl = https://belle-saucisson-47408.herokuapp.com/
 
@@ -19,3 +19,14 @@ Get Movies by date range
 Get movies per page selected, pass a parameter ==> page to get a particular page ==> pass a parameter record for number of records per page
 
     baseUrl/movies?page=2&record=10
+
+
+### Build a Docker Image to run app locally
+
+In the root folder of the app run:
+
+    docker build -t interview_app .
+
+Then run:
+
+    docker run -it -p 3000:3000  --rm --name my-running-app interview_app
