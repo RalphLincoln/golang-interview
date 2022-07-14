@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 )
 
 func main() {
@@ -41,12 +42,17 @@ func main() {
 
 	port := os.Getenv("PORT")
 
-	url := fmt.Sprintf(":%s", port)
+	url := fmt.Sprintf("127.0.0.1:%s", port)
+
 	//SERVER SET UP
+	srv := &http.Server{
+		Handler:      r,
+		Addr:         url,
+		WriteTimeout: 15 * time.Second,
+		ReadTimeout:  15 * time.Second,
+	}
 
 	log.Println("API is running!")
 	log.Println(port, "<=port", url, "<=url")
-	if err := http.ListenAndServe(port, r); err != nil {
-		panic(err)
-	}
+	log.Fatal(srv.ListenAndServe())
 }
