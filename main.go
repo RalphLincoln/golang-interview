@@ -45,7 +45,7 @@ func main() {
 
 	log.Println("API is running!")
 	log.Println(port, "<=port", url, "<=url")
-	if err := http.ListenAndServe(port, r); err != nil {
+	if err := http.ListenAndServe(port, nil); err != nil {
 		panic(err)
 	}
 }
