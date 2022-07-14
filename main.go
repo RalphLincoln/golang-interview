@@ -46,7 +46,7 @@ func main() {
 		port = "4000"
 	}
 
-	url := fmt.Sprintf("127.0.0.1:'%s'", port)
+	url := fmt.Sprintf("127.0.0.1:%s", port)
 
 	//SERVER SET UP
 	srv := &http.Server{
