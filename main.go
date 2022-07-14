@@ -1,11 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gorilla/mux"
 	"interview_restapi/db"
 	"interview_restapi/handlers"
 	"log"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -38,10 +40,18 @@ func main() {
 
 	r.Use(mux.CORSMethodMiddleware(r))
 
+	port, ok := os.LookupEnv("PORT")
+
+	if ok == false {
+		port = "4000"
+	}
+
+	url := fmt.Sprintf("127.0.0.1:%$", port)
+
 	//SERVER SET UP
 	srv := &http.Server{
 		Handler:      r,
-		Addr:         "127.0.0.1:4000",
+		Addr:         url,
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
 	}
