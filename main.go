@@ -57,5 +57,6 @@ func main() {
 	}
 
 	log.Println("API is running!")
+	log.Println(port, "port")
 	log.Fatal(srv.ListenAndServe())
 }
