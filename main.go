@@ -42,7 +42,6 @@ func main() {
 	port := os.Getenv("PORT")
 
 	url := fmt.Sprintf("127.0.0.1:%s", port)
-	//SERVER SET UP
 
 	log.Println("API is running!")
 	log.Println(port, "<=port", url, "<=url")
