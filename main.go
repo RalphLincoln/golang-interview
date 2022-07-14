@@ -40,11 +40,7 @@ func main() {
 
 	r.Use(mux.CORSMethodMiddleware(r))
 
-	port, ok := os.LookupEnv("PORT")
-
-	if ok == false {
-		port = "4000"
-	}
+	port := os.Getenv("PORT")
 
 	url := fmt.Sprintf("127.0.0.1:%s", port)
 
